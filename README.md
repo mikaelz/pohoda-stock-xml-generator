@@ -1,4 +1,4 @@
-# pohoda-stock-xml-generator
+# Pohoda stock XML generator
 Generata stock XML for Stormware Pohoda import.
 
 ## XSD validation via PHPUnit

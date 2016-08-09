@@ -1,0 +1,24 @@
+{
+    "name": "mikaelz/pohoda",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Michal Zuber",
+			"email": "info@nevilleweb.sk",
+			"homepage": "https://nevilleweb.sk"
+		}
+	],
+    "require": {
+        "php": "5.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mikaelz\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MikaelzTests\\": "tests/"
+        }
+    }
+}
