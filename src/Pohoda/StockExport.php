@@ -39,6 +39,7 @@ class StockExport
         $items = array();
         foreach ($this->data as $item) {
             $name = substr($item['name'], 0, 90);
+            $price = number_format((float) $item['price'], 2, '.', '');
 
             $items[] = '
             <dat:dataPackItem id="ZAS'.date('Ymd').$counter++.'" version="2.0">
@@ -57,11 +58,7 @@ class StockExport
                             <typ:id>1</typ:id>
                             <typ:ids>'.self::STORE_NAME.'</typ:ids>
                         </stk:storage>
-                        <stk:typePrice>
-                            <typ:id>1</typ:id>
-                            <typ:ids>Ostatní</typ:ids>
-                        </stk:typePrice>
-                        <stk:sellingPrice>'.$item['price'].'</stk:sellingPrice>
+                        <stk:sellingPrice>'.$price.'</stk:sellingPrice>
                         <stk:mass>'.$item['weight'].'</stk:mass>
                         <stk:volume></stk:volume>
                         <stk:pictures>
@@ -74,7 +71,9 @@ class StockExport
                     </stk:stockHeader>
                     <stk:stockPriceItem>
                         <stk:stockPrice>
-                            <typ:price>'.$item['price'].'</typ:price>
+                            <typ:id>1</typ:id>
+                            <typ:ids>VOC</typ:ids>
+                            <typ:price>'.$price.'</typ:price>
                         </stk:stockPrice>
                     </stk:stockPriceItem>
                 </stk:stock>
