@@ -38,7 +38,8 @@ class StockExport
         $counter = 1;
         $items = array();
         foreach ($this->data as $item) {
-            $name = substr($item['name'], 0, 90);
+            $name = iconv(mb_detect_encoding($item['name']), 'Windows-1250//TRANSLIT', $item['name']);
+            $name = substr($name, 0, 90);
             $price = number_format((float) $item['price'], 2, '.', '');
 
             $items[] = '
@@ -58,6 +59,9 @@ class StockExport
                             <typ:id>1</typ:id>
                             <typ:ids>'.self::STORE_NAME.'</typ:ids>
                         </stk:storage>
+                        <stk:typePrice>
+                            <typ:ids>Ostatní</typ:ids>
+                        </stk:typePrice>
                         <stk:sellingPrice>'.$price.'</stk:sellingPrice>
                         <stk:mass>'.$item['weight'].'</stk:mass>
                         <stk:volume></stk:volume>
